@@ -1,0 +1,159 @@
+<h1 class="pb-5">Completa el formulario para crear tu cuenta</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="row g-3">
+      <div class="col-md-6">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input
+          formControlName="nombre"
+          type="name"
+          [ngClass]="{ 'is-invalid': nombreControlIsInvalid }"
+          class="form-control"
+          id="inputNombre"
+          placeholder="Nombre"
+        />
+
+        <app-form-error-helper 
+          *ngIf="nombreControl.invalid && nombreControl.touched" 
+          [formErrors]="nombreControl.errors"
+          >
+        </app-form-error-helper>
+
+      </div>
+
+      <div class="col-md-6">
+        <label for="Apellido" class="form-label">Apellido</label>
+        <input
+          formControlName="apellido"
+          type="name"
+          [ngClass]="{ 'is-invalid': apellidoControlIsInvalid }"
+          class="form-control"
+          id="inputApellido"
+          placeholder="Apellido"
+        />
+
+        <app-form-error-helper 
+          *ngIf="apellidoControl.invalid && apellidoControl.touched" 
+          [formErrors]="apellidoControl.errors"
+          >
+        </app-form-error-helper>
+
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputEdad" class="form-label">Edad</label>
+        <input
+          formControlName="edad"
+          type="number"
+          [ngClass]="{ 'is-invalid': edadControlIsInvalid }"
+          class="form-control"
+          id="inputEdad"
+          placeholder="Edad"
+          min="1"
+        />
+        <app-form-error-helper 
+          *ngIf="edadControl.invalid && edadControl.touched" 
+          [formErrors]="edadControl.errors"
+          >
+        </app-form-error-helper>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputProvincia" class="form-label">Provincia</label>
+        <select
+          formControlName="provincia"
+          id="inputProvincia"
+          [ngClass]="{ 'is-invalid': provinciaControlIsInvalid }"
+          class="form-select"
+        >
+          <option selected>Elige...</option>
+          <ng-container *ngFor="let provincia of provincias">
+            <option>{{provincia}}</option>
+          </ng-container>
+          
+        </select>
+        <app-form-error-helper 
+          *ngIf="provinciaControl.invalid && provinciaControl.touched" 
+          [formErrors]="provinciaControl.errors"
+          >
+        </app-form-error-helper>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          [ngClass]="{ 'is-invalid': emailControlIsInvalid } "
+          class="form-control"
+          id="inputEmai"
+          placeholder="nombre@mail.com"
+        />
+
+        <app-form-error-helper 
+          *ngIf="emailControl.invalid && emailControl.touched" 
+          [formErrors]="emailControl.errors"
+          >
+        </app-form-error-helper>
+
+      </div>
+
+      <div class="col-6">
+        <label for="curso" class="form-label">Curso</label>
+        <select 
+          formControlName="curso" 
+          id="inputCurso" 
+          [ngClass]="{ 'is-invalid': cursoControlIsInvalid }"
+          class="form-select">
+          <option selected>Elige...</option>
+            <ng-container *ngFor="let curso of cursos">
+              <option>{{curso}}</option>
+            </ng-container>
+        </select>
+
+        <app-form-error-helper 
+          *ngIf="cursoControl.invalid && cursoControl.touched" 
+          [formErrors]="cursoControl.errors"
+          >
+        </app-form-error-helper>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword1" class="form-label">Password</label>
+        <input
+          formControlName="password"
+          type="password" 
+          [ngClass]="{ 'is-invalid': passwordControlIsInvalid }"
+          class="form-control"
+          id="inputPassword"
+          placeholder="**********"
+        />
+        <app-form-error-helper 
+          *ngIf="passwordControl.invalid && passwordControl.touched" 
+          [formErrors]="passwordControl.errors"
+          >
+        </app-form-error-helper>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword2" class="form-label">Confirm Password</label>
+        <input
+          formControlName="confirmPassword"
+          type="password"
+          [ngClass]="{ 'is-invalid': confirmPasswordControlIsInvalid }"
+          class="form-control"
+          id="inputConfirmPassword"
+          placeholder="**********"
+        />
+        <app-form-error-helper 
+          *ngIf="confirmPasswordControl.invalid && confirmPasswordControl.touched" 
+          [formErrors]="confirmPasswordControl.errors"
+          >
+        </app-form-error-helper>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Crear cuenta</button>
+      </div>
+    </form>
+
+

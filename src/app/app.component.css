@@ -1,0 +1,13 @@
+.background{
+    background-color: rgb(23, 23, 23);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+}
+
+.container{
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+}

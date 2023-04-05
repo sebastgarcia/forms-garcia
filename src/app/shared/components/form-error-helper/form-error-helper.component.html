@@ -1,0 +1,34 @@
+
+<div *ngFor="let error of formErrors | keyvalue ">
+    
+    <ng-container [ngSwitch]="error.key" >
+        
+        <small class="text-danger" *ngSwitchCase="'required'">
+            Por favor complete este campo.
+        </small>
+
+        <small class="text-danger" *ngSwitchCase="'email'">
+            Por favor ingrese un correo válido.
+        </small>
+
+        <small class="text-danger" *ngSwitchCase="'noSelect'">
+            Por favor seleccione una opción.
+        </small>
+
+        <small class="text-danger" *ngSwitchCase="'noMayor'">
+            Debés ser mayor de edad para inscribirte.
+        </small>
+
+        <small class="text-danger" *ngSwitchCase="'noMatch'">
+            Las CONTRASEÑAS deben ser iguales.
+        </small>
+
+        <small class="text-danger" *ngSwitchCase="'pattern'">
+            La contraseña debe ser alfanumérica, contener mayusculas y minusculas y tener entre 5 y 12 caracteres. 
+        </small>
+
+    </ng-container>
+
+</div>
+
+
